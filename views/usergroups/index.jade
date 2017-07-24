@@ -1,0 +1,17 @@
+block content
+    h1.
+         #{title}
+    ul
+        - each usergroup, i in usergroups
+            li
+                = usergroup.name
+               
+                = usergroup._id
+                form(action='/usergroups/#{usergroup._id}/edit',method='post',enctype='application/x-www-form-urlencoded')
+                    input(type='hidden',value='DELETE',name='_method')
+                    button(type='submit').
+                        Delete
+                p 
+                    a(href='/usergroups/#{usergroup._id}/edit') Edit
+                p
+                    a(href='/usergroups/#{usergroup._id}') Show
